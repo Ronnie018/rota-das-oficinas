@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.form-item {
+  @apply px-3 py-3 rounded-lg;
+}
+
+.form-container {
+  @apply bg-gray mt-16 h-max rounded-xl p-4 flex gap-4 items-center justify-between flex-wrap mb-12;
+}
+.form-thin{
+  padding: .4rem 1rem;
+  margin: .2rem;
+}
