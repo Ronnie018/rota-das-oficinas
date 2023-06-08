@@ -44,6 +44,8 @@ const Form = () => {
       }
     });
 
+    if (Object.keys(_items).length !== cartItems.length) return;
+
     for (let [key, divisor] of Object.entries(_items)) {
       let item_total = getTotal(key);
       _items[key] = item_total / divisor;
@@ -58,7 +60,7 @@ const Form = () => {
 
   return (
     <Container className='bg-dark-gray md:px-12 sm:py-8 p-4 gap-4'>
-      {finalData && <Result data={finalData} />}
+      {finalData && <Result data={finalData} disable={setFinalData} />}
       <h1 className='text-yellow sm:text-5xl text-3xl font-bold'>
         {sectionName}
       </h1>

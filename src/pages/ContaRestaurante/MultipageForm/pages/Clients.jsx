@@ -5,7 +5,7 @@ import Select from '../../../../components/inputs/Select';
 import Button from '../../../../components/buttons/Button';
 
 const Clients = ({ cartItems, calculate }) => {
-  const [selectedItems, setSelectedItems] = useState([]); // ['string']
+  const [selectedItems, setSelectedItems] = useState([]);
   const [clients, setClients] = useState([]);
 
   const name_input = useRef(null);
@@ -51,13 +51,7 @@ const Clients = ({ cartItems, calculate }) => {
   }
 
   function handleCalculate() {
-    if (allHasBeenConsumed()) calculate(clients);
-  }
-
-  function allHasBeenConsumed() {
-    console.log('need to do it');
-    // if i have time ill get it by length (can be + performatic)
-    return true;
+    calculate(clients);
   }
 
   return (
@@ -106,8 +100,11 @@ const Clients = ({ cartItems, calculate }) => {
         </div>
       </form>
       <div className='flex flex-wrap mb-8'>
-        {clients.map(({ name }) => (
-          <div className='form-container form-thin flex gap-3 flex-wrap text-3xl w-max capitalize text-whitegrayish'>
+        {clients.map(({ name }, i) => (
+          <div
+            className='form-container form-thin flex gap-3 flex-wrap text-3xl w-max capitalize text-whitegrayish'
+            key={i}
+          >
             {name} <Close action={() => removeClient(name)} />
           </div>
         ))}
